@@ -1,6 +1,6 @@
 {
   "name": "create-cavos-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Scaffold a new Starknet app with Cavos invisible wallets",
   "bin": {
     "create-cavos-app": "./index.js"
