@@ -90,7 +90,12 @@ function copyDir(src, dest) {
 
   for (let entry of entries) {
     const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
+    let destPath = path.join(dest, entry.name);
+
+    // Handle npm's .gitignore renaming behavior
+    if (entry.name === 'gitignore') {
+      destPath = path.join(dest, '.gitignore');
+    }
 
     if (entry.isDirectory()) {
       copyDir(srcPath, destPath);
