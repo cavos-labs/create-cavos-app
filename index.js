@@ -66,6 +66,16 @@ async function run() {
     // Silent fail if git is not installed or configured
   }
 
+  console.log('✓ Adding Cavos Agent Skills...');
+  try {
+    execSync('npx skills add cavos-labs/cavos-skills', { 
+      cwd: targetDir, 
+      stdio: 'inherit' 
+    });
+  } catch (e) {
+    console.error('Warning: Failed to add Cavos skills. You can add them later with: npx skills add cavos-labs/cavos-skills');
+  }
+
   console.log(`\nDone! 🚀\n\nRun:\n  cd ${projectName}\n  npm run dev\n`);
   process.exit(0);
 }
