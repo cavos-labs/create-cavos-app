@@ -10,8 +10,18 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+const CAVOS_ASCII = `
+███████╗██╗ ██╗██╗██╗      ███████╗
+██╔════╝██║ ██╔╝██║██║      ██╔════╝
+███████╗█████╔╝ ██║██║      ███████╗
+╚════██║██╔═██╗ ██║██║      ╚════██║
+███████║██║  ██╗██║███████╗███████║
+╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝
+`;
+
 async function run() {
-  console.log('\n✦ Welcome to create-cavos-app\n');
+  console.log(CAVOS_ASCII);
+  console.log('✦ Welcome to create-cavos-app\n');
 
   const projectName = process.argv[2] || await ask('Project name? (my-cavos-app): ') || 'my-cavos-app';
   const appId = await ask('Your Cavos App ID (get it at cavos.xyz): ');
