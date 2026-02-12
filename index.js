@@ -48,12 +48,22 @@ async function run() {
 
   console.log('✓ Installing dependencies (Next.js, @cavos/react, Starknet)...');
   try {
-    execSync('npm install next react react-dom @cavos/react starknet lucide-react tailwindcss @tailwindcss/postcss postcss', { 
+    execSync('npm install next react react-dom @cavos/react starknet lucide-react tailwindcss @tailwindcss/postcss postcss @types/react @types/react-dom @types/node typescript', { 
       cwd: targetDir, 
       stdio: 'inherit' 
     });
   } catch (e) {
     console.error('Warning: npm install failed. You may need to run it manually.');
+  }
+
+  console.log('✓ Initializing git repository...');
+  try {
+    execSync('git init && git add . && git commit -m "Initial commit from create-cavos-app"', { 
+      cwd: targetDir, 
+      stdio: 'ignore' 
+    });
+  } catch (e) {
+    // Silent fail if git is not installed or configured
   }
 
   console.log(`\nDone! 🚀\n\nRun:\n  cd ${projectName}\n  npm run dev\n`);
